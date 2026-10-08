@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="늘 처음이라네 · 봉화 청량산 청량사 주지 석두윤 스님">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="석두윤 스님 · 청량사 주지">
+<meta property="og:description" content="늘 처음이라네 · 봉화 청량산 청량사">
+<meta property="og:image" content="https://withaiacademy.github.io/Temple/cheongryangsa/profile.jpg">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="600">
+<meta property="og:url" content="https://withaiacademy.github.io/Temple/cheongryangsa/">
+<meta name="theme-color" content="#1F2A25">
+<title>청량사 석두윤 스님</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Song+Myung&display=swap">
+<style>
+/* 레이아웃: 휴대폰 세로 명함. 구역마다 바탕색을 달리해(한지·먹·송화·괴색) 사찰 안을 걷듯 내려가고, 구역 사이는 단청 띠로 나눈다 */
+:root{
+  --bg:#2A302D;          /* 명함 바깥: 먹빛 */
+  --paper:#F6F3EC;       /* 한지 */
+  --paper2:#ECEFE6;      /* 송화빛 연녹 */
+  --paper3:#F4E9DF;      /* 괴색 옅은 물 */
+  --ink:#22272A;         /* 먹 */
+  --muted:#5A615C;
+  --pine:#36533F;        /* 소나무 */
+  --kasa:#B0502A;        /* 가사 괴색 */
+  --deep:#1F2A25;        /* 짙은 먹녹 (법어·템플스테이·꼬리말 바탕) */
+  --deep-ink:#F1EDE3;    /* 짙은 바탕 위 글자 */
+  --deep-muted:#B9BFB4;
+  --line:rgba(34,39,42,.13);
+  --chip:rgba(54,83,63,.09);
+  /* 단청 오방색 */
+  --dc-green:#3F7A68;--dc-red:#B8442C;--dc-yellow:#D6A23E;--dc-white:#EFE9DA;--dc-blue:#2E4B78;
+  --display:"Song Myung","Nanum Myeongjo","Batang",serif;
+  --body:"Gowun Batang","Nanum Myeongjo","Batang",serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0D100F;--paper:#1B201E;--paper2:#1E2521;--paper3:#251F1B;--ink:#ECE8DE;--muted:#A6ACA5;--pine:#93BBA2;--kasa:#E58D60;
+  --deep:#121815;--deep-ink:#ECE8DE;--deep-muted:#A6ACA5;--line:rgba(236,232,222,.14);--chip:rgba(147,187,162,.12);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D100F;--paper:#1B201E;--paper2:#1E2521;--paper3:#251F1B;--ink:#ECE8DE;--muted:#A6ACA5;--pine:#93BBA2;--kasa:#E58D60;
+  --deep:#121815;--deep-ink:#ECE8DE;--deep-muted:#A6ACA5;--line:rgba(236,232,222,.14);--chip:rgba(147,187,162,.12);color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.75;word-break:keep-all;overflow-wrap:break-word}
+a{color:inherit}
+.card{max-width:480px;margin:0 auto;background:var(--paper);min-height:100%;overflow:hidden}
+
+/* 단청 띠: 오방색 줄무늬 */
+.dancheong{height:12px;background:
+  linear-gradient(180deg,var(--dc-green) 0 3px,var(--dc-white) 3px 4px,var(--dc-red) 4px 7px,var(--dc-white) 7px 8px,var(--dc-yellow) 8px 10px,var(--dc-blue) 10px 12px);}
+.dancheong.thin{height:6px;background:linear-gradient(180deg,var(--dc-green) 0 2px,var(--dc-red) 2px 4px,var(--dc-yellow) 4px 6px)}
+
+/* 한지 결: 옅은 가로 섬유 무늬 */
+.hanji{background-color:var(--paper);background-image:
+  repeating-linear-gradient(0deg,rgba(120,100,60,.035) 0 1px,transparent 1px 5px),
+  repeating-linear-gradient(90deg,rgba(120,100,60,.025) 0 1px,transparent 1px 9px)}
+
+/* 도량 사진 */
+.hero{position:relative;aspect-ratio:4/3;max-width:100%;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:50% 55%;display:block}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.30) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,0) 60%,var(--paper) 100%)}
+.hero .place{position:absolute;top:16px;left:18px;z-index:1;color:#fff;font-size:14px;letter-spacing:.12em;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.hero .place b{font-family:var(--display);font-weight:400;font-size:18px;letter-spacing:.2em;margin-right:6px}
+
+/* 이름 */
+.who{position:relative;margin-top:-84px;padding:0 20px 26px;display:flex;flex-direction:column;align-items:center;text-align:center;z-index:2}
+.photo{width:148px;height:148px;border-radius:50%;padding:5px;background:var(--paper);box-shadow:0 0 0 2px var(--kasa)}
+.photo img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
+.role{margin-top:14px;font-size:15px;color:var(--kasa);letter-spacing:.3em;padding-left:.3em}
+.name{display:flex;align-items:center;gap:12px;margin:2px 0 0}
+.name h1{font-family:var(--display);font-weight:400;font-size:40px;line-height:1.2;margin:0;letter-spacing:.12em;padding-left:.12em}
+.seal{width:34px;height:34px;background:var(--kasa);color:var(--paper);font-family:var(--display);font-size:13px;line-height:1.05;display:grid;place-items:center;border-radius:3px;transform:rotate(-4deg);padding:2px}
+.hanja{color:var(--muted);font-size:15px;letter-spacing:.25em;padding-left:.25em}
+.order{margin-top:6px;font-size:14.5px;color:var(--muted);line-height:1.6}
+
+/* 세로쓰기 법어: 짙은 먹녹 바탕 위 족자 */
+.dharma{background:var(--deep);color:var(--deep-ink);padding:30px 20px;display:flex;justify-content:center;align-items:center;gap:26px;position:relative}
+.dharma::before{content:"";position:absolute;inset:14px;border:1px solid rgba(214,162,62,.35);pointer-events:none}
+.dharma .v{writing-mode:vertical-rl;font-family:var(--display);font-size:32px;letter-spacing:.12em;line-height:1}
+.dharma .cap{font-size:14px;color:var(--deep-muted);line-height:1.7}
+.dharma .cap b{display:block;color:var(--dc-yellow);font-weight:400;letter-spacing:.1em}
+
+/* 버튼 구역 */
+.actions-wrap{background:var(--paper2);padding:22px 16px 12px}
+.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:88px;padding:12px 4px;border-radius:12px;background:var(--paper);color:var(--ink);text-decoration:none;font-family:var(--body);font-size:15px;font-weight:700;line-height:1.3;text-align:center;border:1px solid var(--line);cursor:pointer;transition:transform .1s,box-shadow .15s}
+.btn svg{width:26px;height:26px;stroke:var(--pine);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.btn:hover{box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.btn:active{transform:scale(.97)}
+.btn.main{background:var(--pine);color:var(--paper);border-color:var(--pine)}
+.btn.main svg{stroke:var(--paper)}
+.btn:focus-visible{outline:3px solid var(--kasa);outline-offset:2px}
+.toast{text-align:center;font-size:14px;color:var(--pine);min-height:1.5em;margin:8px 0 0}
+
+/* 본문 구역 */
+section{padding:32px 22px 30px}
+section.tone-paper{background:var(--paper)}
+section.tone-pine{background:var(--paper2)}
+section.tone-kasa{background:var(--paper3)}
+.eyebrow{font-size:13px;letter-spacing:.22em;color:var(--kasa);margin:0}
+h2{font-family:var(--display);font-weight:400;font-size:26px;line-height:1.35;margin:2px 0 14px;text-wrap:balance}
+p{margin:0 0 12px}
+.muted{color:var(--muted)}
+.sub{font-size:15px;color:var(--muted);margin:0 0 8px}
+
+dl.facts{display:grid;grid-template-columns:5.2em 1fr;gap:8px 12px;margin:0 0 14px}
+dl.facts dt{color:var(--muted);font-size:15px}
+dl.facts dd{margin:0;min-width:0}
+
+ol.path{list-style:none;margin:0;padding:0 0 0 18px;border-left:1px solid var(--line);display:grid;gap:10px}
+ol.path li{position:relative}
+ol.path li::before{content:"";position:absolute;left:-23px;top:.72em;width:9px;height:9px;border-radius:50%;background:var(--paper);box-shadow:0 0 0 1.5px var(--pine)}
+ol.path li.now::before{background:var(--kasa);box-shadow:0 0 0 1.5px var(--kasa)}
+
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0}
+.nums div{text-align:center;padding:12px 4px;background:var(--paper);border-radius:10px;border:1px solid var(--line)}
+.nums b{display:block;font-family:var(--display);font-weight:400;font-size:30px;line-height:1.2;color:var(--pine);font-variant-numeric:tabular-nums}
+.nums span{font-size:13.5px;color:var(--muted);line-height:1.4;display:block}
+
+ul.chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+ul.chips li{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:4px 14px;font-size:15px}
+
+/* 템플스테이: 도량 사진을 어둡게 깐 구역 */
+section.stay{position:relative;color:var(--deep-ink);background:var(--deep)}
+section.stay::before{content:"";position:absolute;inset:0;background:url("dorang.jpg") center 30%/cover no-repeat;opacity:.22;filter:grayscale(.3)}
+section.stay::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--deep) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 60%,var(--deep) 100%);opacity:.9}
+section.stay>*{position:relative;z-index:1}
+section.stay .eyebrow{color:var(--dc-yellow)}
+section.stay .muted,section.stay .sub,section.stay dl.facts dt,section.stay blockquote footer{color:var(--deep-muted)}
+.gjh{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0 18px}
+.gjh>div{text-align:center;padding:14px 4px 12px;background:rgba(241,237,227,.08);border:1px solid rgba(214,162,62,.35);border-radius:10px}
+.gjh .h{font-family:var(--display);font-size:34px;line-height:1.1;color:var(--dc-yellow)}
+.gjh .k{font-size:14px;color:var(--deep-muted);margin-top:4px}
+.gjh .s{font-weight:700;font-size:16px;margin-top:2px}
+blockquote{margin:18px 0;padding:4px 0 4px 16px;border-left:2px solid var(--dc-yellow);font-size:17.5px;line-height:1.8}
+blockquote footer{font-size:14px;margin-top:6px}
+ol.book{margin:0;padding-left:1.3em;display:grid;gap:4px}
+.stay a.go{display:inline-block;margin-top:14px;padding:10px 18px;border-radius:999px;background:var(--dc-yellow);color:#1F2A25;text-decoration:none;font-weight:700;font-size:15.5px}
+
+ul.acts{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+ul.acts li{display:grid;grid-template-columns:6.2em 1fr;gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+ul.acts li:last-child{border-bottom:0}
+ul.acts span{color:var(--muted);font-size:15px}
+ul.acts div{min-width:0}
+
+.contact{display:grid;gap:0;margin:0}
+.contact div{display:grid;grid-template-columns:5.2em 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+.contact dt{color:var(--muted);font-size:15px}
+.contact dd{margin:0;min-width:0;font-variant-numeric:tabular-nums}
+.contact a{text-decoration-color:var(--line);text-underline-offset:3px}
+.maplink{display:inline-block;margin-top:4px;font-size:15px;color:var(--pine);font-weight:700}
+
+footer.foot{background:var(--deep);color:var(--deep-muted);padding:30px 22px 36px;text-align:center;font-size:13px;line-height:1.7}
+footer.foot .motto{font-family:var(--display);font-size:20px;color:var(--deep-ink);margin-bottom:8px;letter-spacing:.1em}
+
+
+/* 전각 사진첩: 옆으로 넘기는 띠 */
+.strip-head{display:flex;justify-content:space-between;align-items:baseline;margin:22px 0 8px}
+.strip-head p{margin:0}
+.strip-head small{font-size:13px;color:var(--muted)}
+.strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:22px;margin:0 -22px;padding:2px 22px 10px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.strip button{flex:0 0 62%;max-width:250px;scroll-snap-align:start;border:0;padding:0;background:none;cursor:zoom-in;text-align:left;font:inherit;color:inherit}
+.strip.small button{flex-basis:44%;max-width:180px}
+.strip img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;display:block;background:var(--chip)}
+.strip .cap{display:block;font-size:14.5px;margin-top:5px;line-height:1.35}
+.strip .cap i{font-style:normal;color:var(--muted);font-size:13px;margin-left:4px}
+.strip button:focus-visible{outline:3px solid var(--kasa);outline-offset:2px;border-radius:8px}
+
+/* 크게 보기 */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(10,12,11,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 56px) 12px calc(env(safe-area-inset-bottom,0px) + 70px)}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:4px}
+.lb .lbcap{color:#F1EDE3;margin-top:12px;font-size:16px;text-align:center}
+.lb button{position:absolute;border:0;background:rgba(255,255,255,.12);color:#fff;font:inherit;font-size:16px;border-radius:999px;cursor:pointer}
+.lb .x{top:calc(env(safe-area-inset-top,0px) + 12px);right:12px;padding:8px 16px}
+.lb .pv,.lb .nx{bottom:calc(env(safe-area-inset-bottom,0px) + 16px);padding:10px 20px}
+.lb .pv{left:16px}.lb .nx{right:16px}
+
+/* 이번 주 법문: 반야심경 순례 카드 */
+section.weekly{background:var(--paper)}
+.sutra{position:relative;background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:22px 20px 18px;overflow:hidden}
+.sutra::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,var(--dc-green) 0 25%,var(--dc-red) 25% 50%,var(--dc-yellow) 50% 75%,var(--dc-blue) 75%)}
+.sutra .wk{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;color:var(--muted)}
+.sutra .wk b{color:var(--kasa);font-weight:700;letter-spacing:.06em}
+.sutra .kr{font-family:var(--display);font-size:24px;line-height:1.5;margin:14px 0 4px;text-wrap:balance}
+.sutra .hj{font-size:14px;color:var(--muted);letter-spacing:.08em;line-height:1.7;margin:0 0 14px}
+.sutra .mean{border-top:1px solid var(--line);padding-top:12px;margin:0}
+.sutra .mean small{display:block;color:var(--pine);font-size:13px;font-weight:700;letter-spacing:.08em;margin-bottom:2px}
+.sutra .read{display:inline-block;margin-top:14px;padding:9px 18px;border-radius:999px;background:var(--pine);color:var(--paper);text-decoration:none;font-weight:700;font-size:15.5px}
+.dots{display:flex;flex-wrap:wrap;gap:5px;margin:14px 0 0}
+.dots span{width:14px;height:6px;border-radius:3px;background:var(--line)}
+.dots span.done{background:color-mix(in srgb,var(--pine) 45%,transparent)}
+.dots span.on{background:var(--kasa)}
+.wnav{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.wnav button{border:1px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;font-size:15px;padding:7px 14px;border-radius:999px;cursor:pointer}
+.wnav button:disabled{opacity:.4;cursor:default}
+.wnav .today{border:0;background:none;color:var(--pine);font-weight:700;padding:7px 4px}
+.wnote{font-size:13.5px;color:var(--muted);margin:10px 0 0}
+
+@media (max-width:360px){.name h1{font-size:34px}.actions{grid-template-columns:repeat(2,1fr)}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<main class="card">
+  <div class="hero">
+    <img src="dorang.jpg" alt="청량사 오층석탑과 소나무, 그 뒤로 보이는 청량산 봉우리">
+    <div class="place"><b>淸凉寺</b>봉화 청량산</div>
+  </div>
+
+  <header class="who">
+    <div class="photo"><img src="profile.jpg" alt="석두윤 스님 사진"></div>
+    <div class="role">청량사 주지</div>
+    <div class="name"><h1>석두윤</h1><span class="seal" aria-hidden="true">頭<br>胤</span></div>
+    <div class="hanja">釋 頭 胤</div>
+    <div class="order">대한불교조계종 제16교구 고운사 말사<br>청량사 (淸凉寺)</div>
+  </header>
+
+  <div class="dancheong" aria-hidden="true"></div>
+  <div class="dharma" aria-label="한 줄 법어: 늘 처음이라네">
+    <div class="v">늘 처음이라네</div>
+    <div class="cap"><b>주지스님<br>한 말씀</b></div>
+  </div>
+
+  <div class="actions-wrap">
+    <nav class="actions" aria-label="바로가기">
+      <a class="btn main" href="tel:01037282029">
+        <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>전화 걸기</a>
+      <a class="btn" href="sms:01037282029">
+        <svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/></svg>문자 보내기</a>
+      <button class="btn" type="button" id="saveContact">
+        <svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="4"/><path d="M3 20a7 7 0 0 1 14 0M19 8v6M16 11h6"/></svg>연락처 저장</button>
+      <a class="btn" href="http://www.cheongryangsa.org/board/templestay/index.php" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M3 10 12 4l9 6M5 10v9h14v-9M3 19h18M10 19v-5h4v5"/></svg>템플스테이<br>예약</a>
+      <a class="btn" href="http://www.cheongryangsa.org" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>홈페이지</a>
+      <a class="btn" href="#weekly">
+        <svg viewBox="0 0 24 24"><path d="M4 5c3-1 6-1 8 1 2-2 5-2 8-1v14c-3-1-6-1-8 1-2-2-5-2-8-1z"/><path d="M12 6v14"/></svg>이번 주 법문</a>
+    </nav>
+    <p class="toast" id="toast" role="status" aria-live="polite"></p>
+  </div>
+
+  <section id="monk" class="hanji">
+    <p class="eyebrow">스님 소개</p>
+    <h2>부석사에서 출가해<br>청량산에 이르기까지</h2>
+    <dl class="facts">
+      <dt>출가 본사</dt><dd>고운사</dd>
+      <dt>수계</dt><dd>사미계 2005년 · 구족계 2009년</dd>
+    </dl>
+    <ol class="path">
+      <li>부석사 출가</li>
+      <li>송광사 강원 · 율원 졸업</li>
+      <li>선원 4안거 정진</li>
+      <li>대만 정각정사 하안거 정진</li>
+      <li class="now">청량사 주지 소임 중</li>
+    </ol>
+  </section>
+
+  <div class="dancheong thin" aria-hidden="true"></div>
+
+  <section id="weekly" class="weekly">
+    <p class="eyebrow">이번 주 법문</p>
+    <h2>반야심경 순례<br>한 주에 한 구절</h2>
+    <article class="sutra" aria-live="polite">
+      <div class="wk"><b id="wkNo">1 / 14</b><span id="wkDate"></span></div>
+      <p class="kr" id="wkKr"></p>
+      <p class="hj" id="wkHj"></p>
+      <p class="mean"><small>우리말 뜻</small><span id="wkMean"></span></p>
+      <a class="read" id="wkLink" href="http://www.cheongryangsa.org/board/bbs/board.php?bo_table=bubgong05" target="_blank" rel="noopener">스님 강의 전문 읽기 ›</a>
+      <div class="dots" id="wkDots" aria-hidden="true"></div>
+    </article>
+    <div class="wnav">
+      <button type="button" id="wkPrev">‹ 앞 구절</button>
+      <button type="button" class="today" id="wkToday">이번 주로</button>
+      <button type="button" id="wkNext">다음 구절 ›</button>
+    </div>
+    <p class="wnote">매주 월요일에 다음 구절로 바뀝니다. 우리말 뜻은 조계종 표준 한글 반야심경을 따랐습니다.</p>
+  </section>
+
+  <div class="dancheong thin" aria-hidden="true"></div>
+
+  <section id="temple" class="tone-pine">
+    <p class="eyebrow">도량 이야기</p>
+    <h2>연꽃 꽃술 자리에 앉은<br>천년 도량</h2>
+    <p>신라 문무왕 3년(663) 원효대사가 창건하고, 법장 고봉선사가 중창한 천년고찰입니다. 청량산 열두 봉우리 가운데 연화봉 기슭, 연꽃 꽃술 자리에 앉은 도량입니다.</p>
+    <div class="nums">
+      <div><b>663</b><span>창건 연도<br>신라 문무왕 3년</span></div>
+      <div><b>12</b><span>도량을 감싼<br>청량산 봉우리</span></div>
+      <div><b>17</b><span>템플스테이<br>최대 인원</span></div>
+    </div>
+    <p class="sub">대표 성보와 볼거리</p>
+    <ul class="chips">
+      <li>건칠약사여래좌상 (보물)</li>
+      <li>문수보살 · 지장보살</li>
+      <li>16나한</li>
+      <li>안심당 (차 · 전통등)</li>
+    </ul>
+    <div class="strip-head"><p class="sub">전각 둘러보기</p><small>옆으로 넘겨 보세요 ›</small></div>
+    <div class="strip" id="stripA">
+      <button type="button" data-src="jeongak/g01.jpg" data-cap="일주문 · 청량산 청량사"><img src="jeongak/g01.jpg" alt="청량산 청량사 일주문" loading="lazy"><span class="cap">일주문</span></button>
+      <button type="button" data-src="jeongak/g02.jpg" data-cap="범종루"><img src="jeongak/g02.jpg" alt="범종루" loading="lazy"><span class="cap">범종루<i>梵鐘樓</i></span></button>
+      <button type="button" data-src="jeongak/g03.jpg" data-cap="유리보전"><img src="jeongak/g03.jpg" alt="유리보전" loading="lazy"><span class="cap">유리보전<i>琉璃寶殿</i></span></button>
+      <button type="button" data-src="jeongak/g04.jpg" data-cap="지장전"><img src="jeongak/g04.jpg" alt="지장전" loading="lazy"><span class="cap">지장전<i>地藏殿</i></span></button>
+      <button type="button" data-src="jeongak/g05.jpg" data-cap="응진전"><img src="jeongak/g05.jpg" alt="절벽 아래 응진전" loading="lazy"><span class="cap">응진전<i>應眞殿</i></span></button>
+      <button type="button" data-src="jeongak/g06.jpg" data-cap="선불장"><img src="jeongak/g06.jpg" alt="선불장 문과 단청" loading="lazy"><span class="cap">선불장<i>選佛場</i></span></button>
+      <button type="button" data-src="jeongak/g07.jpg" data-cap="설선당"><img src="jeongak/g07.jpg" alt="설선당" loading="lazy"><span class="cap">설선당<i>說禪堂</i></span></button>
+      <button type="button" data-src="jeongak/g08.jpg" data-cap="심검당"><img src="jeongak/g08.jpg" alt="심검당과 석상" loading="lazy"><span class="cap">심검당<i>尋劍堂</i></span></button>
+      <button type="button" data-src="jeongak/g09.jpg" data-cap="안심당"><img src="jeongak/g09.jpg" alt="안심당" loading="lazy"><span class="cap">안심당<i>安心堂</i></span></button>
+      <button type="button" data-src="jeongak/g10.jpg" data-cap="위에서 내려다본 도량"><img src="jeongak/g10.jpg" alt="위에서 내려다본 도량" loading="lazy"><span class="cap">도량 내려다보기</span></button>
+    </div>
+    <div class="strip-head"><p class="sub">안에서 만나는 성보와 쉼터</p><small>눌러서 크게 ›</small></div>
+    <div class="strip small" id="stripB">
+      <button type="button" data-src="jeongak/i01.jpg" data-cap="부처님"><img src="jeongak/i01.jpg" alt="금빛 부처님" loading="lazy"><span class="cap">부처님</span></button>
+      <button type="button" data-src="jeongak/i02.jpg" data-cap="보살님"><img src="jeongak/i02.jpg" alt="연꽃을 든 보살상" loading="lazy"><span class="cap">보살님</span></button>
+      <button type="button" data-src="jeongak/i03.jpg" data-cap="보살님"><img src="jeongak/i03.jpg" alt="보관을 쓴 보살상" loading="lazy"><span class="cap">보살님</span></button>
+      <button type="button" data-src="jeongak/i04.jpg" data-cap="삼존불"><img src="jeongak/i04.jpg" alt="삼존불" loading="lazy"><span class="cap">삼존불</span></button>
+      <button type="button" data-src="jeongak/i05.jpg" data-cap="지장전 지장보살"><img src="jeongak/i05.jpg" alt="지장보살과 천불" loading="lazy"><span class="cap">지장보살</span></button>
+      <button type="button" data-src="jeongak/i06.jpg" data-cap="나한상"><img src="jeongak/i06.jpg" alt="나한상" loading="lazy"><span class="cap">나한상</span></button>
+      <button type="button" data-src="jeongak/i07.jpg" data-cap="산신 탱화"><img src="jeongak/i07.jpg" alt="산신 탱화와 호랑이" loading="lazy"><span class="cap">산신 탱화</span></button>
+      <button type="button" data-src="jeongak/i08.jpg" data-cap="안심당 찻집"><img src="jeongak/i08.jpg" alt="안심당 찻집 내부" loading="lazy"><span class="cap">안심당 찻집</span></button>
+      <button type="button" data-src="jeongak/i09.jpg" data-cap="안심당 창가에서 본 청량산"><img src="jeongak/i09.jpg" alt="안심당 창가 찻상과 청량산" loading="lazy"><span class="cap">안심당 창가</span></button>
+    </div>
+  </section>
+
+  <div class="dancheong" aria-hidden="true"></div>
+
+  <section id="templestay" class="stay">
+    <p class="eyebrow">계정혜 템플스테이</p>
+    <h2>하루의 리듬 속에서<br>몸소 닦아 보는 시간</h2>
+    <p>쉬어 가는 휴식형보다, 계(戒)·정(定)·혜(慧)를 하루의 리듬 속에서 몸소 닦아 보는 수행·체험형을 지향합니다.</p>
+    <div class="gjh" aria-label="프로그램 세 단계">
+      <div><div class="h">戒</div><div class="k">계</div><div class="s">입문</div></div>
+      <div><div class="h">定</div><div class="k">정</div><div class="s">체험</div></div>
+      <div><div class="h">慧</div><div class="k">혜</div><div class="s">정진</div></div>
+    </div>
+    <dl class="facts">
+      <dt>일정</dt><dd>1박 2일 ~ 3박 4일</dd>
+      <dt>권합니다</dt><dd>삶에 잠시 쉼표를 넣고 싶은 분께 권합니다.</dd>
+    </dl>
+    <blockquote>
+      행복은 구함을 내려놓고 지금 충분함을 아는 곳에서 온다.<br>
+      계율은 함께하는 모든 생명에 대한 배려.
+      <footer>석두윤 스님이 참가자께 드리는 말씀</footer>
+    </blockquote>
+    <p class="sub">예약 안내</p>
+    <ol class="book">
+      <li>템플스테이 홈페이지(한국불교문화사업단)에서 청량사 선택 · 온라인 예약만 가능</li>
+      <li>청량사 홈페이지 「계정혜 템플스테이」</li>
+    </ol>
+    <a class="go" href="http://www.cheongryangsa.org/board/templestay/index.php" target="_blank" rel="noopener">계정혜 템플스테이 안내 보기 ›</a>
+  </section>
+
+  <div class="dancheong" aria-hidden="true"></div>
+
+  <section id="vow" class="tone-kasa">
+    <p class="eyebrow">포교 원력</p>
+    <h2>언제든 찾아올 수 있는<br>넉넉한 품</h2>
+    <p>정신적 버팀목을 찾는 이들과 미래가 불안한 청년들이 언제든 찾아와 부처님의 지혜와 자비를 구할 수 있는 넉넉한 품이 되고자 합니다.</p>
+    <ul class="acts">
+      <li><span>기도 · 법회</span><div>매월 음력 8일 약사재일 법회</div></li>
+      <li><span>법문 나눔</span><div><a href="#weekly">이번 주 법문 (반야심경 순례)</a> · <a href="http://www.cheongryangsa.org/board/bbs/board.php?bo_table=bubgong05" target="_blank" rel="noopener">경전자료실</a></div></li>
+      <li><span>문화 행사</span><div>작은 음악회, 사찰음식 체험 등</div></li>
+    </ul>
+  </section>
+
+  <div class="dancheong thin" aria-hidden="true"></div>
+
+  <section id="contact" class="hanji">
+    <p class="eyebrow">연락처 · 오시는 길</p>
+    <h2>청량사 종무소</h2>
+    <dl class="contact">
+      <div><dt>휴대전화</dt><dd><a href="tel:01037282029">010-3728-2029</a></dd></div>
+      <div><dt>종무소</dt><dd><a href="tel:0546721446">054-672-1446</a></dd></div>
+      <div><dt>팩스</dt><dd>054-672-9060</dd></div>
+      <div><dt>이메일</dt><dd><a href="mailto:coolmanju2026@gmail.com">coolmanju2026@gmail.com</a></dd></div>
+      <div><dt>홈페이지</dt><dd><a href="http://www.cheongryangsa.org" target="_blank" rel="noopener">www.cheongryangsa.org</a></dd></div>
+      <div><dt>주소</dt><dd>경상북도 봉화군 명호면<br>청량산길 199-152<br>
+        <a class="maplink" href="https://map.naver.com/p/search/%EB%B4%89%ED%99%94%20%EC%B2%AD%EB%9F%89%EC%82%AC" target="_blank" rel="noopener">지도에서 보기 ›</a></dd></div>
+    </dl>
+  </section>
+
+  <div class="dancheong" aria-hidden="true"></div>
+  <footer class="foot">
+    <div class="motto">늘 처음이라네</div>
+    청량산 청량사 · 주지 석두윤
+  </footer>
+</main>
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="사진 크게 보기">
+  <button type="button" class="x" id="lbX">닫기 ✕</button>
+  <img id="lbImg" alt="">
+  <div class="lbcap" id="lbCap"></div>
+  <button type="button" class="pv" id="lbP">‹ 이전</button>
+  <button type="button" class="nx" id="lbN">다음 ›</button>
+</div>
+
+<script>
+(function(){
+  var toast=document.getElementById('toast');
+  function say(t){toast.textContent=t;}
+  var vcf=[
+    'BEGIN:VCARD','VERSION:3.0',
+    'N:석두윤;;;;','FN:석두윤 스님',
+    'ORG:청량사','TITLE:주지',
+    'TEL;TYPE=CELL:010-3728-2029',
+    'TEL;TYPE=WORK:054-672-1446',
+    'TEL;TYPE=FAX:054-672-9060',
+    'EMAIL:coolmanju2026@gmail.com',
+    'URL:http://www.cheongryangsa.org',
+    'ADR;TYPE=WORK:;;청량산길 199-152;봉화군 명호면;경상북도;;대한민국',
+    'NOTE:대한불교조계종 제16교구 고운사 말사 청량사 주지',
+    'END:VCARD'].join('\r\n');
+  document.getElementById('saveContact').addEventListener('click',function(){
+    try{
+      var blob=new Blob([vcf],{type:'text/vcard;charset=utf-8'});
+      var url=URL.createObjectURL(blob);
+      var a=document.createElement('a');
+      a.href=url;a.download='석두윤스님_청량사.vcf';
+      document.body.appendChild(a);a.click();a.remove();
+      setTimeout(function(){URL.revokeObjectURL(url)},4000);
+      say('연락처 파일을 열면 휴대폰 연락처에 저장됩니다.');
+    }catch(e){say('휴대전화 010-3728-2029 를 직접 저장해 주세요.');}
+  });
+})();
+
+/* 반야심경 순례: 2026-10-05(월) 주부터 한 주에 한 구절 */
+(function(){
+  var B='http://www.cheongryangsa.org/board/bbs/board.php?bo_table=bubgong05&wr_id=';
+  var W=[
+   [37,'관자재보살 행심반야바라밀다시 조견오온개공 도일체고액','觀自在菩薩 行深般若波羅蜜多時 照見五蘊皆空 度一切苦厄','관자재보살이 깊은 반야바라밀다를 행할 때, 오온이 공한 것을 비추어 보고 온갖 고통에서 건너느니라.'],
+   [38,'사리자 색불이공 공불이색 색즉시공 공즉시색 수상행식 역부여시','舍利子 色不異空 空不異色 色卽是空 空卽是色 受想行識 亦復如是','사리자여! 색이 공과 다르지 않고 공이 색과 다르지 않으며, 색이 곧 공이요 공이 곧 색이니, 수·상·행·식도 그러하니라.'],
+   [39,'사리자 시제법공상 불생불멸 불구부정 부증불감','舍利子 是諸法空相 不生不滅 不垢不淨 不增不減','사리자여! 모든 법은 공하여 나지도 멸하지도 않으며, 더럽지도 깨끗하지도 않으며, 늘지도 줄지도 않느니라.'],
+   [40,'시고 공중무색 무수상행식','是故 空中無色 無受想行識','그러므로 공 가운데는 색이 없고 수·상·행·식도 없으며,'],
+   [41,'무안이비설신의 무색성향미촉법','無眼耳鼻舌身意 無色聲香味觸法','안·이·비·설·신·의도 없고, 색·성·향·미·촉·법도 없으며,'],
+   [42,'무안계 내지 무의식계','無眼界 乃至 無意識界','눈의 경계도 의식의 경계까지도 없고,'],
+   [43,'무무명 역무무명진 내지 무노사 역무노사진','無無明 亦無無明盡 乃至 無老死 亦無老死盡','무명도 무명이 다함까지도 없으며, 늙고 죽음도 늙고 죽음이 다함까지도 없고,'],
+   [44,'무고집멸도','無苦集滅道','고·집·멸·도도 없으며,'],
+   [45,'무지역무득','無智亦無得','지혜도 얻음도 없느니라.'],
+   [46,'이무소득고 보리살타 의반야바라밀다고 심무가애 무가애고 무유공포 원리전도몽상 구경열반','以無所得故 菩提薩埵 依般若波羅蜜多故 心無罣礙 無罣礙故 無有恐怖 遠離顚倒夢想 究竟涅槃','얻을 것이 없는 까닭에 보살은 반야바라밀다를 의지하므로 마음에 걸림이 없고, 걸림이 없으므로 두려움이 없어서, 뒤바뀐 헛된 생각을 멀리 떠나 완전한 열반에 들어가며,'],
+   [47,'삼세제불 의반야바라밀다고 득아뇩다라삼먁삼보리','三世諸佛 依般若波羅蜜多故 得阿耨多羅三藐三菩提','삼세의 모든 부처님도 반야바라밀다를 의지하므로 아뇩다라삼먁삼보리를 얻느니라.'],
+   [48,'고지반야바라밀다 시대신주 시대명주 시무상주 시무등등주','故知般若波羅蜜多 是大神呪 是大明呪 是無上呪 是無等等呪','반야바라밀다는 가장 신비하고 밝은 주문이며 위없는 주문이며 무엇과도 견줄 수 없는 주문이니,'],
+   [49,'능제일체고 진실불허','能除一切苦 眞實不虛','온갖 괴로움을 없애고 진실하여 허망하지 않음을 알지니라.'],
+   [50,'고설반야바라밀다주 즉설주왈 아제아제 바라아제 바라승아제 모지 사바하','故說般若波羅蜜多呪 卽說呪曰 揭諦揭諦 波羅揭諦 波羅僧揭諦 菩提娑婆訶','이제 반야바라밀다주를 말하리라. 아제아제 바라아제 바라승아제 모지 사바하']
+  ];
+  var START=Date.UTC(2026,9,4,15,0,0); /* 2026-10-05 00:00 한국시간 */
+  var WEEK=7*864e5, N=W.length;
+  function nowIdx(){var d=Math.floor((Date.now()-START)/WEEK);return ((d%N)+N)%N;}
+  function weekStart(i){var cyc=Math.floor((Date.now()-START)/WEEK/N);var t=START+(cyc*N+i)*WEEK+9*36e5;var d=new Date(t);return (d.getUTCMonth()+1)+'월 '+d.getUTCDate()+'일 주';}
+  var cur=nowIdx(), today=cur, $=function(id){return document.getElementById(id)};
+  var dots=$('wkDots'); for(var k=0;k<N;k++){dots.appendChild(document.createElement('span'));}
+  function show(i){
+    cur=i; var w=W[i];
+    $('wkNo').textContent='반야심경 순례 '+(i+1)+' / '+N;
+    $('wkDate').textContent=(i===today?'이번 주 · ':'')+weekStart(i);
+    $('wkKr').textContent=w[1]; $('wkHj').textContent=w[2]; $('wkMean').textContent=w[3];
+    $('wkLink').href=B+w[0];
+    [].forEach.call(dots.children,function(s,j){s.className=j===i?'on':(j<i?'done':'');});
+    $('wkPrev').disabled=i===0; $('wkNext').disabled=i===N-1; $('wkToday').hidden=i===today;
+  }
+  $('wkPrev').onclick=function(){if(cur>0)show(cur-1)};
+  $('wkNext').onclick=function(){if(cur<N-1)show(cur+1)};
+  $('wkToday').onclick=function(){show(today)};
+  show(cur);
+})();
+
+/* 사진 크게 보기 */
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.strip button')), lb=document.getElementById('lb'),
+      img=document.getElementById('lbImg'), cap=document.getElementById('lbCap'), at=0, last=null;
+  function open(i){at=(i+btns.length)%btns.length;var b=btns[at];img.src=b.dataset.src;img.alt=b.dataset.cap;cap.textContent=b.dataset.cap;lb.hidden=false;document.body.style.overflow='hidden';}
+  function close(){lb.hidden=true;document.body.style.overflow='';if(last)last.focus();}
+  btns.forEach(function(b,i){b.addEventListener('click',function(){last=b;open(i);document.getElementById('lbX').focus();});});
+  document.getElementById('lbX').onclick=close;
+  document.getElementById('lbP').onclick=function(){open(at-1)};
+  document.getElementById('lbN').onclick=function(){open(at+1)};
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')open(at-1);if(e.key==='ArrowRight')open(at+1);});
+})();
+</script>
+
+</body>
+</html>

@@ -16,6 +16,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Song+Myung&display=swap">
+<script>
+/* 카카오톡 안에서 열렸을 때 휴대폰 기본 브라우저(크롬·사파리 등)로 자동 전환 — 연락처 저장이 되도록 (FC 명함과 같은 방식) */
+(function(){
+  try{
+    var ua = navigator.userAgent || '';
+    if(ua.indexOf('KAKAOTALK') === -1) return;
+    if(location.search.indexOf('ext=1') !== -1) return;
+    var target = location.protocol + '//' + location.host + location.pathname
+               + (location.search ? location.search + '&ext=1' : '?ext=1')
+               + location.hash;
+    location.href = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(target);
+  }catch(e){}
+})();
+</script>
 <style>
 /* 레이아웃: 휴대폰 세로 명함. 구역마다 바탕색을 달리해(한지·먹·송화·괴색) 사찰 안을 걷듯 내려가고, 구역 사이는 단청 띠로 나눈다 */
 :root{

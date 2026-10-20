@@ -51,7 +51,28 @@ body{font-family:var(--body);background:var(--page);color:var(--text);padding:28
 .f label{display:block;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:4px}
 .f input,.f select{width:100%;padding:10px 11px;border:1px solid var(--line);border-radius:8px;background:var(--field);color:var(--text);font-family:var(--body);font-size:15.5px}
 .f input:focus,.f select:focus{outline:2px solid var(--pine);outline-offset:1px}
-.reset{margin-top:12px;background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:8px 14px;font:inherit;font-size:14px;cursor:pointer}
+.reset{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:9px 14px;font:inherit;font-size:14px;cursor:pointer}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.btn-save{background:#36533F;color:#F6F3EC;border:none;border-radius:8px;padding:10px 16px;font:inherit;font-size:15px;font-weight:700;cursor:pointer}
+.btn-line{background:none;border:1px solid var(--pine);color:var(--pine);border-radius:8px;padding:9px 14px;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.btn-save:focus-visible,.btn-line:focus-visible,.reset:focus-visible{outline:3px solid var(--kasa);outline-offset:2px}
+.status{font-size:13.5px;color:var(--ok);margin-top:8px;min-height:1.3em}
+.status.warn{color:var(--kasa)}
+/* 손님 목록 */
+.people{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.people h2{font-size:16px;margin-bottom:4px}
+.people .hint{font-size:13.5px;color:var(--muted);margin-bottom:10px}
+.people select{width:100%;padding:10px 11px;border:1px solid var(--line);border-radius:8px;background:var(--field);color:var(--text);font-family:var(--body);font-size:15.5px}
+.people .empty{font-size:14px;color:var(--muted);padding:10px 12px;border:1px dashed var(--line);border-radius:8px}
+.sent{margin-top:12px}
+.sent h3{font-size:13.5px;color:var(--muted);margin-bottom:6px}
+.sent ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.sent li{font-size:13.5px;padding:5px 10px;border-radius:999px;background:var(--chip);border:1px solid var(--line)}
+.sent li b{color:var(--kasa);margin-right:4px}
+.sent .none{font-size:13.5px;color:var(--muted)}
+.filebox{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filebox small{flex:1 1 100%;font-size:12.5px;color:var(--muted);line-height:1.6}
+#fileIn{display:none}
 
 /* 상황 목록 */
 .toc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
@@ -136,9 +157,24 @@ body{font-family:var(--body);background:var(--page);color:var(--text);padding:28
     <p>청량사 템플스테이 팀장용입니다. 손님 정보를 한 번 적으면, 아래 10가지 카드와 문구에 이름·날짜·금액이 저절로 들어갑니다.</p>
   </div>
 
+  <div class="people" id="people">
+    <h2>손님 목록</h2>
+    <p class="hint">저장한 손님을 고르면 정보와 보낸 회신 기록이 다시 불러와집니다. 이 휴대폰 안에만 저장됩니다.</p>
+    <div id="plistWrap"></div>
+    <div class="sent" id="sentBox"></div>
+    <div class="filebox">
+      <button class="btn-line" type="button" id="dlOne">이 손님 파일로 내려받기</button>
+      <button class="btn-line" type="button" id="upFile">파일 불러오기</button>
+      <button class="reset" type="button" id="dlAll">전체 백업</button>
+      <input type="file" id="fileIn" accept=".json,application/json">
+      <small>파일 이름은 「청량사회신_성함_입실날짜」로 저장됩니다. 휴대폰을 바꾸거나 다른 기기에서 쓰실 때 불러오면 됩니다. 손님 정보가 들어 있으니 GitHub에는 올리지 마십시오.</small>
+    </div>
+    <p class="status" id="pstatus" role="status"></p>
+  </div>
+
   <div class="form" id="form">
     <h2>손님 정보</h2>
-    <p class="hint">비워 둔 칸은 카드에 ○○로 표시됩니다. 적은 내용은 이 휴대폰 안에만 남습니다.</p>
+    <p class="hint">비워 둔 칸은 카드에 ○○로 표시됩니다. 「이 손님 저장」을 누르면 손님 목록에 들어갑니다.</p>
     <div class="grid">
       <div class="f"><label for="nm">성함</label><input id="nm" type="text" placeholder="홍길동" autocomplete="off"></div>
       <div class="f"><label for="ppl">인원</label><input id="ppl" type="number" min="1" inputmode="numeric" placeholder="2"></div>
@@ -147,7 +183,12 @@ body{font-family:var(--body);background:var(--page);color:var(--text);padding:28
       <div class="f"><label for="prog">프로그램</label><select id="prog"><option value="">고르기</option><option>입문</option><option>체험</option><option>정진</option></select></div>
       <div class="f"><label for="fee">참가비 합계(원)</label><input id="fee" type="number" min="0" step="1000" inputmode="numeric" placeholder="예: 160000"></div>
     </div>
-    <button class="reset" type="button" id="reset">새 손님 (모두 지우기)</button>
+    <div class="btns">
+      <button class="btn-save" type="button" id="saveCust">이 손님 저장</button>
+      <button class="reset" type="button" id="reset">새 손님</button>
+      <button class="reset" type="button" id="delCust" hidden>목록에서 지우기</button>
+    </div>
+    <p class="status" id="fstatus" role="status"></p>
   </div>
 
   <nav class="toc" aria-label="상황 목록">
@@ -240,7 +281,10 @@ body{font-family:var(--body);background:var(--page);color:var(--text);padding:28
       <li>카드는 <b>화면을 캡처</b>해 사진으로, 문구는 <b>복사</b>해 카톡이나 문자로 보냅니다.</li>
       <li>주황 밑줄(○○)이 남아 있으면 아직 안 채운 칸입니다. 보내기 전에 꼭 확인하십시오.</li>
       <li>8번 가시는 길 인사에는 그 기수에 찍은 수행·경관·법문 사진을 몇 장 곁들이면 좋습니다.</li>
-      <li>다음 손님을 받을 때는 「새 손님」 버튼으로 칸을 비웁니다.</li>
+      <li>손님 정보를 적고 <b>「이 손님 저장」</b>을 누르면 손님 목록에 들어갑니다. 다음에 그 손님이 연락하면 목록에서 고르기만 하면 됩니다.</li>
+      <li>문구를 복사할 때마다 그 손님에게 <b>어떤 회신을 언제 보냈는지</b> 저절로 기록됩니다.</li>
+      <li>다음 손님을 받을 때는 「새 손님」을 누릅니다. 앞 손님 기록은 목록에 그대로 남습니다.</li>
+      <li>손님 정보는 이 휴대폰에만 저장됩니다. 휴대폰을 바꾸기 전에는 「전체 백업」으로 파일을 받아 두십시오.</li>
     </ul>
   </div>
 </div>
@@ -419,7 +463,7 @@ body{font-family:var(--body);background:var(--page);color:var(--text);padding:28
   }
   function copy(box){
     var text=box.querySelector('pre').textContent, mark=box.querySelector('.done');
-    function done(){mark.textContent='✓ 복사됨';mark.hidden=false;setTimeout(function(){mark.hidden=true;},2000);}
+    function done(){mark.textContent='✓ 복사됨';mark.hidden=false;setTimeout(function(){mark.hidden=true;},2000);logSent(box.getAttribute('data-copy'));}
     function fallback(){
       var ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');
       ta.style.position='fixed';ta.style.top='-9999px';document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,text.length);
@@ -428,13 +472,131 @@ body{font-family:var(--body);background:var(--page);color:var(--text);padding:28
     }
     if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done).catch(fallback);}else{fallback();}
   }
-  var KEY='waa_temple_reply';
-  function save(){try{var o={};FIELDS.forEach(function(f){o[f]=$(f).value;});localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}}
-  function load(){try{var o=JSON.parse(localStorage.getItem(KEY)||'{}');FIELDS.forEach(function(f){if(o[f]!=null)$(f).value=o[f];});}catch(e){}}
-  load();
+  /* ── 저장: 작업 중인 칸(초안) + 손님 목록 ── */
+  var KEY='waa_temple_reply', CKEY='waa_temple_customers', CURKEY='waa_temple_current';
+  var LABEL={c1:'예약 가능 문의',c2:'예약 완료',c3:'결제 후 취소',c4:'결제 전 취소',c5:'환불 규정',c6:'요청 응대',c7:'오시는 길',c8:'가시는 길 인사',c9:'프로그램 문의',c10:'준비물'};
+  var cur=null;
+  function store(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true;}catch(e){return false;}}
+  function fetchS(k,d){try{var x=localStorage.getItem(k);return x?JSON.parse(x):d;}catch(e){return d;}}
+  function custs(){return fetchS(CKEY,{});}
+  function snapshot(){var o={};FIELDS.forEach(function(f){o[f]=$(f).value;});o.avail=radio('avail');o.rqok=radio('rqok');return o;}
+  function radio(n){var r=document.querySelector('input[name='+n+']:checked');return r?r.value:'';}
+  function setRadio(n,v){var r=document.querySelector('input[name='+n+'][value="'+v+'"]');if(r)r.checked=true;}
+  function apply(o){FIELDS.forEach(function(f){$(f).value=o&&o[f]!=null?o[f]:'';});setRadio('avail',(o&&o.avail)||'yes');setRadio('rqok',(o&&o.rqok)||'yes');}
+  function say(id,t,warn){var e=$(id);e.textContent=t;e.className='status'+(warn?' warn':'');if(t)setTimeout(function(){if(e.textContent===t)e.textContent='';},4000);}
+  function label(c){var f=c.f||{};return (f.nm||'(이름 없음)')+' · '+(dateStr(f.dt)||'날짜 미정')+(f.prog?' · '+f.prog:'')+(f.stay?' '+f.stay:'');}
+  function newId(){return 'c'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+
+  function save(){ /* 초안 자동 저장 + 고른 손님이면 그 기록도 함께 고침 */
+    store(KEY,snapshot());
+    if(cur){var all=custs(); if(all[cur]){all[cur].f=snapshot();all[cur].at=Date.now();store(CKEY,all);drawList();}}
+  }
+  function drawList(){
+    var all=custs(), ids=Object.keys(all);
+    ids.sort(function(a,b){var x=(all[a].f||{}).dt||'9999',y=(all[b].f||{}).dt||'9999';return x<y?-1:x>y?1:(all[b].at||0)-(all[a].at||0);});
+    var w=$('plistWrap');
+    if(!ids.length){w.innerHTML='<div class="empty">아직 저장한 손님이 없습니다. 아래에 정보를 적고 「이 손님 저장」을 누르십시오.</div>';}
+    else{
+      var h='<label class="sr" for="plist" style="position:absolute;left:-9999px">저장한 손님</label><select id="plist"><option value="">— 손님 고르기 ('+ids.length+'명) —</option>';
+      ids.forEach(function(id){h+='<option value="'+id+'"'+(id===cur?' selected':'')+'>'+esc(label(all[id]))+((all[id].sent||[]).length?' · 회신 '+all[id].sent.length+'건':'')+'</option>';});
+      w.innerHTML=h+'</select>';
+      $('plist').addEventListener('change',function(){pick(this.value);});
+    }
+    drawSent(); $('delCust').hidden=!cur;
+  }
+  function drawSent(){
+    var b=$('sentBox'), c=cur&&custs()[cur];
+    if(!c){b.innerHTML='';return;}
+    var list=c.sent||[];
+    b.innerHTML='<h3>'+esc((c.f&&c.f.nm)||'')+'님께 보낸 회신</h3>'+(list.length?'<ul>'+list.map(function(x){var d=new Date(x.t);return '<li><b>'+x.k.slice(1)+'</b>'+esc(LABEL[x.k]||x.k)+' · '+(d.getMonth()+1)+'/'+d.getDate()+' '+('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)+'</li>';}).join('')+'</ul>':'<p class="none">아직 없습니다. 문구를 복사하면 여기에 기록됩니다.</p>');
+  }
+  function pick(id){
+    var all=custs();
+    if(!id||!all[id]){cur=null;store(CURKEY,null);drawList();return;}
+    cur=id;store(CURKEY,id);apply(all[id].f);render();drawList();
+    say('pstatus',label(all[id])+' 정보를 불러왔습니다.');
+  }
+  function saveCust(){
+    var o=snapshot();
+    if(!o.nm.trim()){say('fstatus','성함을 먼저 적어 주십시오.',true);$('nm').focus();return;}
+    var all=custs();
+    if(!cur||!all[cur]){cur=newId();all[cur]={f:o,sent:[],at:Date.now()};}
+    else{all[cur].f=o;all[cur].at=Date.now();}
+    if(!store(CKEY,all)){say('fstatus','이 휴대폰에서는 저장이 막혀 있습니다. 「파일로 내려받기」를 써 주십시오.',true);return;}
+    store(CURKEY,cur);drawList();say('fstatus',o.nm+'님을 손님 목록에 저장했습니다.');
+  }
+  function logSent(k){
+    var o=snapshot(); if(!o.nm.trim())return;
+    var all=custs();
+    if(!cur||!all[cur]){cur=newId();all[cur]={f:o,sent:[],at:Date.now()};store(CURKEY,cur);}
+    all[cur].sent=(all[cur].sent||[]).concat([{k:k,t:Date.now()}]);
+    store(CKEY,all);drawList();
+  }
+  function delCust(){
+    if(!cur)return; var all=custs(), nm=(all[cur]&&all[cur].f&&all[cur].f.nm)||'';
+    var b=$('delCust');
+    if(b.dataset.armed!=='1'){b.dataset.armed='1';b.textContent='한 번 더 누르면 지웁니다';setTimeout(function(){b.dataset.armed='';b.textContent='목록에서 지우기';},4000);return;}
+    delete all[cur];store(CKEY,all);cur=null;store(CURKEY,null);b.dataset.armed='';b.textContent='목록에서 지우기';
+    drawList();say('fstatus',nm+'님을 목록에서 지웠습니다.');
+  }
+  function newCust(){cur=null;store(CURKEY,null);apply(null);render();drawList();$('nm').focus();}
+
+  /* ── 파일로 내려받기 · 불러오기 ── */
+  function download(name,obj){
+    var blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;
+    document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href);},4000);
+  }
+  function safe(t){return String(t||'').replace(/[\\\/:*?"<>|\s]+/g,'').slice(0,20)||'이름없음';}
+  $('dlOne').addEventListener('click',function(){
+    var o=snapshot(); if(!o.nm.trim()){say('pstatus','성함이 있는 손님만 파일로 내려받을 수 있습니다.',true);return;}
+    var c=(cur&&custs()[cur])||{f:o,sent:[]}; c.f=o;
+    var d=o.dt?o.dt.replace(/-/g,'').slice(4):'날짜미정';
+    download('청량사회신_'+safe(o.nm)+'_'+d+'.json',{kind:'청량사회신',ver:1,customers:[c]});
+    say('pstatus','파일을 내려받았습니다. 휴대폰 「다운로드」 폴더를 확인하십시오.');
+  });
+  $('dlAll').addEventListener('click',function(){
+    var all=custs(), list=Object.keys(all).map(function(k){return all[k];});
+    if(!list.length){say('pstatus','저장한 손님이 없습니다.',true);return;}
+    var t=new Date(), d=t.getFullYear()+('0'+(t.getMonth()+1)).slice(-2)+('0'+t.getDate()).slice(-2);
+    download('청량사회신_전체백업_'+d+'.json',{kind:'청량사회신',ver:1,customers:list});
+    say('pstatus','손님 '+list.length+'명을 파일 하나로 내려받았습니다.');
+  });
+  $('upFile').addEventListener('click',function(){$('fileIn').click();});
+  $('fileIn').addEventListener('change',function(){
+    var file=this.files&&this.files[0]; if(!file)return;
+    var rd=new FileReader();
+    rd.onload=function(){
+      try{
+        var data=JSON.parse(rd.result);
+        if(data.kind!=='청량사회신'||!Array.isArray(data.customers))throw 0;
+        var all=custs(), last=null, n=0;
+        data.customers.forEach(function(c){
+          if(!c||!c.f)return;
+          var same=Object.keys(all).filter(function(k){return all[k].f&&all[k].f.nm===c.f.nm&&all[k].f.dt===c.f.dt;})[0];
+          var id=same||newId(); all[id]={f:c.f,sent:c.sent||[],at:c.at||Date.now()}; last=id; n++;
+        });
+        store(CKEY,all);
+        if(n===1)pick(last);else drawList();
+        say('pstatus','손님 '+n+'명을 불러왔습니다.');
+      }catch(e){say('pstatus','회신 카드함에서 내려받은 파일이 아닙니다. 다른 파일을 골라 주십시오.',true);}
+      $('fileIn').value='';
+    };
+    rd.readAsText(file,'utf-8');
+  });
+
+  /* 시작: 마지막에 보던 손님 또는 초안 */
+  (function(){
+    var id=fetchS(CURKEY,null), all=custs();
+    if(id&&all[id]){cur=id;apply(all[id].f);}
+    else{var o=fetchS(KEY,null); if(o)apply(o);}
+  })();
   FIELDS.forEach(function(f){$(f).addEventListener('input',render);$(f).addEventListener('change',render);});
   [].forEach.call(document.querySelectorAll('input[type=radio]'),function(r){r.addEventListener('change',render);});
-  $('reset').addEventListener('click',function(){FIELDS.forEach(function(f){$(f).value='';});render();try{localStorage.removeItem(KEY);}catch(e){}});
+  $('reset').addEventListener('click',newCust);
+  $('saveCust').addEventListener('click',saveCust);
+  $('delCust').addEventListener('click',delCust);
+  drawList();
   render();
 })();
 </script>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>청량사 주소 복사함</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Song+Myung&display=swap" rel="stylesheet">
+<style>
+/* 보험 「주소 복사함」과 같은 구조, 색은 청량사 3종(한지·먹녹·소나무·괴색)에 맞춤 */
+:root{
+  --bg:#ECEFE6; --panel:#F6F3EC; --ink:#22272A; --muted:#5A615C; --pine:#36533F; --kasa:#B0502A;
+  --line:rgba(34,39,42,.14); --ok:#2F6B47; --note-bg:#F4E9DF; --note-line:#E2CDB9; --note-ink:#5B3B26;
+  --display:"Song Myung","Nanum Myeongjo","Batang",serif;
+  --body:"Gowun Batang","Nanum Myeongjo","Batang",serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111412;--panel:#1B201E;--ink:#ECE8DE;--muted:#A6ACA5;--pine:#93BBA2;--kasa:#E58D60;
+  --line:rgba(236,232,222,.14);--ok:#6FAE86;--note-bg:#251F1B;--note-line:#4A3A2E;--note-ink:#E6CDB8;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111412;--panel:#1B201E;--ink:#ECE8DE;--muted:#A6ACA5;--pine:#93BBA2;--kasa:#E58D60;
+  --line:rgba(236,232,222,.14);--ok:#6FAE86;--note-bg:#251F1B;--note-line:#4A3A2E;--note-ink:#E6CDB8;color-scheme:dark}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.6;padding:28px 16px 60px;word-break:keep-all}
+.wrap{max-width:620px;margin:0 auto}
+.band{height:8px;border-radius:2px;background:linear-gradient(180deg,#3F7A68 0 2px,#B8442C 2px 4px,#D6A23E 4px 6px,#2E4B78 6px 8px);margin-bottom:18px}
+h1{font-family:var(--display);font-weight:400;font-size:28px;letter-spacing:.04em}
+h1 span{font-family:var(--body);font-size:15px;color:var(--muted)}
+.intro{margin-top:6px;font-size:15px;color:var(--muted)}
+.group{margin-top:24px}
+.group h2{font-family:var(--display);font-weight:400;font-size:21px;padding-bottom:8px;border-bottom:2px solid var(--pine)}
+.group .org{font-family:var(--body);font-size:13px;color:var(--muted);margin-left:6px}
+.ver,.row{background:var(--panel);border:1px solid var(--line);border-top:none;padding:14px 16px;display:flex;align-items:center;gap:12px}
+.ver{flex-wrap:wrap}
+.ver label{font-size:15px;font-weight:700}
+.ver input{width:72px;padding:8px 10px;font:inherit;font-size:17px;font-weight:700;text-align:center;border:1px solid var(--line);border-radius:8px;color:var(--ink);background:var(--bg)}
+.ver input:focus{outline:2px solid var(--pine);outline-offset:1px}
+.ver small{font-size:13px;color:var(--muted);flex:1 1 220px}
+.row .t{flex:1;min-width:0}
+.row strong{display:block;font-size:16px}
+.row code{display:block;font-size:12.5px;color:var(--muted);word-break:break-all;margin-top:2px;font-family:inherit;user-select:all}
+.row button{flex:0 0 auto;padding:11px 16px;border:none;border-radius:8px;background:var(--pine);color:var(--panel);font:inherit;font-size:15px;font-weight:700;cursor:pointer;min-width:88px}
+.row button:focus-visible{outline:3px solid var(--kasa);outline-offset:2px}
+.row button.ok{background:var(--ok)}
+.all{margin-top:12px;text-align:right}
+.all button{padding:10px 16px;border:1px solid var(--pine);border-radius:8px;background:transparent;color:var(--pine);font:inherit;font-size:14.5px;font-weight:700;cursor:pointer}
+.msg{font-size:13.5px;color:var(--kasa);margin-top:6px;min-height:1.2em}
+.how{margin-top:28px;background:var(--note-bg);border:1px solid var(--note-line);border-radius:12px;padding:18px 20px}
+.how h3{font-size:15px;color:var(--note-ink);margin-bottom:8px}
+.how ol{margin-left:20px;font-size:14px;line-height:1.9;color:var(--note-ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="band"></div>
+  <h1>주소 복사함 <span>· 청량사</span></h1>
+  <p class="intro">복사 버튼을 누르면 주소만 정확히 복사됩니다. 카톡에 붙여 넣어 보내세요.</p>
+
+  <!-- ▼ 인물 추가: group 블록 하나를 복사해 이름·주소·id만 바꾸면 됩니다 -->
+  <div class="group" id="g-seokduyun">
+    <h2>석두윤 스님<span class="org">청량사 주지</span></h2>
+    <div class="ver">
+      <label for="v-g-seokduyun">끝 번호 ?v=</label>
+      <input id="v-g-seokduyun" class="vin" data-group="g-seokduyun" type="number" min="1" value="1" inputmode="numeric">
+      <small>파일을 고쳐 다시 올렸을 때만 1씩 올리세요. 카톡이 옛 화면을 보여 주는 것을 막아 줍니다. 아래 주소 3개에 한꺼번에 적용됩니다.</small>
+    </div>
+    <div class="row" data-url="https://withaiacademy.github.io/Temple/cheongryangsa/namecard.html">
+      <div class="t"><strong>전자명함</strong><code></code></div><button type="button">복사</button></div>
+    <div class="row" data-url="https://withaiacademy.github.io/Temple/cheongryangsa/minisite.html">
+      <div class="t"><strong>미니사이트</strong><code></code></div><button type="button">복사</button></div>
+    <div class="row" data-url="https://withaiacademy.github.io/Temple/cheongryangsa/snscard.html">
+      <div class="t"><strong>SNS 홍보카드</strong><code></code></div><button type="button">복사</button></div>
+    <div class="all"><button type="button" data-all="g-seokduyun">3개 한꺼번에 복사</button></div>
+  </div>
+  <div class="group" id="g-reply">
+    <h2>회신 카드함<span class="org">템플스테이 팀장용 · 손님에게 보내지 않음</span></h2>
+    <div class="ver">
+      <label for="v-g-reply">끝 번호 ?v=</label>
+      <input id="v-g-reply" class="vin" data-group="g-reply" type="number" min="1" value="1" inputmode="numeric">
+      <small>팀장 휴대폰에서 열어 쓰는 주소입니다. 홈 화면에 추가해 두면 편합니다.</small>
+    </div>
+    <div class="row" data-url="https://withaiacademy.github.io/Temple/cheongryangsa/reply.html">
+      <div class="t"><strong>회신 카드함</strong><code></code></div><button type="button">복사</button></div>
+  </div>
+
+  <!-- ▲ 인물 추가 끝 -->
+
+  <div class="group" id="g-templestay">
+    <h2>템플스테이 안내장<span class="org">예약·문의자에게 발송 · 템플스테이 팀장</span></h2>
+    <div class="ver">
+      <label for="v-g-templestay">끝 번호 ?v=</label>
+      <input id="v-g-templestay" class="vin" data-group="g-templestay" type="number" min="1" value="1" inputmode="numeric">
+      <small>안내장을 고쳐 다시 올렸을 때만 1씩 올리세요.</small>
+    </div>
+    <div class="row" data-url="https://withaiacademy.github.io/Temple/cheongryangsa/templestay.html">
+      <div class="t"><strong>템플스테이 안내장</strong><code></code></div><button type="button">복사</button></div>
+  </div>
+
+
+  <p class="msg" id="msg" role="status"></p>
+
+  <div class="how">
+    <h3>보내는 순서</h3>
+    <ol>
+      <li>보낼 주소의 복사 버튼을 누릅니다.</li>
+      <li>카톡 '나와의 채팅'에 붙여 넣고, 다른 글자 없이 보냅니다.</li>
+      <li>미리보기 카드(스님 사진·제목)가 뜨는지 확인합니다.</li>
+      <li>카드 옆 ↪ 버튼으로 받을 분께 공유합니다.</li>
+      <li>인사말은 카드 보내기 전에 따로 보냅니다.</li>
+    </ol>
+  </div>
+</div>
+
+<script>
+function inputFor(group){ return document.querySelector('.vin[data-group="'+group.id+'"]'); }
+function fullUrl(row){
+  var n=parseInt(inputFor(row.closest('.group')).value,10);
+  return row.getAttribute('data-url')+(n>1?'?v='+n:'');
+}
+function refresh(input){
+  var g=document.getElementById(input.getAttribute('data-group'));
+  g.querySelectorAll('.row').forEach(function(r){ r.querySelector('code').textContent=fullUrl(r); });
+  try{ localStorage.setItem('waa_temple_v_'+g.id,input.value); }catch(e){}
+}
+document.querySelectorAll('.vin').forEach(function(inp){
+  try{ var s=localStorage.getItem('waa_temple_v_'+inp.getAttribute('data-group')); if(s) inp.value=s; }catch(e){}
+  inp.addEventListener('input',function(){ refresh(inp); });
+  refresh(inp);
+});
+var msg=document.getElementById('msg');
+function copy(text,btn,label){
+  function done(){ msg.textContent=''; btn.textContent='복사됨 ✓'; btn.classList.add('ok');
+    setTimeout(function(){ btn.textContent=label; btn.classList.remove('ok'); },1800); }
+  function fallback(){
+    var ta=document.createElement('textarea'); ta.value=text; ta.setAttribute('readonly','');
+    ta.style.position='fixed'; ta.style.top='-9999px'; document.body.appendChild(ta);
+    ta.select(); ta.setSelectionRange(0,text.length);
+    var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(ta);
+    ok?done():(msg.textContent='복사가 되지 않았습니다. 주소를 길게 눌러 직접 복사해 주세요.');
+  }
+  if(navigator.clipboard&&window.isSecureContext){ navigator.clipboard.writeText(text).then(done).catch(fallback); }
+  else{ fallback(); }
+}
+document.querySelectorAll('.row button').forEach(function(b){
+  b.addEventListener('click',function(){ copy(fullUrl(b.closest('.row')),b,'복사'); });
+});
+document.querySelectorAll('[data-all]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var g=document.getElementById(b.getAttribute('data-all'));
+    var text=[].map.call(g.querySelectorAll('.row'),function(r){ return r.querySelector('strong').textContent+'\n'+fullUrl(r); }).join('\n\n');
+    copy(text,b,'3개 한꺼번에 복사');
+  });
+});
+</script>
+</body>
+</html>
